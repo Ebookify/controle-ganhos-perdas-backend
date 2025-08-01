@@ -3,5 +3,5 @@ services:
     name: sistema-backend
     env: python
     buildCommand: ""
-    startCommand: python app/main.py
+    startCommand: python -m app.main
     autoDeploy: true
