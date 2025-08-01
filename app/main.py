@@ -1,4 +1,3 @@
-
 import os
 from flask import Flask, send_from_directory
 from flask_cors import CORS
@@ -13,7 +12,10 @@ CORS(app, supports_credentials=True)
 app.config['SESSION_COOKIE_SECURE'] = False
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app/database/app.db'
+
+# ✅ Correção aqui: usar /tmp para permitir escrita
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/app.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
